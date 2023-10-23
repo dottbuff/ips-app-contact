@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build>
+ <module key="admin/contact"><![CDATA[{"default_controller":"","protected":false,"default":null}]]></module>
+ <widget key="dbcontact"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"sidebar","allow_reuse":false,"menu_style":"menu","embeddable":false}]]></widget>
+</build>

@@ -1,0 +1,23 @@
+{
+    "html": {
+        "added": [
+            "front\/widgets\/dbcontact",
+            "front\/widgets\/panels",
+            "front\/widgets\/tabs"
+        ],
+        "edited": [],
+        "removed": []
+    },
+    "css": {
+        "added": [
+            "front\/dbcontact.css"
+        ],
+        "edited": [],
+        "removed": []
+    },
+    "resources": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

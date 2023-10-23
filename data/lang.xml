@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="dbcontact" version="10001">
+  <word key="__app_dbcontact" js="0">(db) Contact</word>
+  <word key="menu__dbcontact_contact" js="0">(db) Contact</word>
+  <word key="menu__dbcontact_contact_manage" js="0">Manage</word>
+  <word key="dbcontact_contact_title" js="0">Contact</word>
+  <word key="dbcontact_contact_title_add_child" js="0">Add user</word>
+  <word key="dbcontact_categoryName" js="0">Category name</word>
+  <word key="dbcontact_title" js="0">Contact with administration</word>
+  <word key="dbcontact_contact_admins" js="0">Administrators</word>
+  <word key="dbcontact_contact_mods" js="0">Moderators</word>
+  <word key="dbcontact_contact_showmore" js="0">Click to see contact details</word>
+  <word key="dbcontact_contact_online" js="0">%s is online</word>
+  <word key="dbcontact_contact_offline" js="0">%s is offline</word>
+  <word key="dbcontact_contact_details" js="0">Contact details</word>
+  <word key="block_dbcontact" js="0">Contact with administration</word>
+  <word key="block_dbcontact_desc" js="0">Administration list widget</word>
+  <word key="dbcontact_contact_steam" js="0">Steam profile</word>
+  <word key="dbcontact_contact_facebook" js="0">Facebook profile</word>
+  <word key="dbcontact_contact_message" js="0">Message</word>
+  <word key="dbcontact_contact_discord" js="0">Click to copy discord name: %s</word>
+  <word key="r__manage" js="0">Manage</word>
+  <word key="r__manage_manage" js="0">Can manage contact?</word>
+  <word key="dbcontact_member" js="0">Member</word>
+  <word key="dbcontact_userId" js="0">Member</word>
+  <word key="dbcontact_links" js="0">Member links</word>
+  <word key="dbcontact_message" js="0">Enable message button?</word>
+  <word key="dbcontact_discord" js="0">Discord</word>
+  <word key="dbcontact_steam" js="0">Steam</word>
+  <word key="dbcontact_facebook" js="0">Facebook</word>
+ </app>
+</language>

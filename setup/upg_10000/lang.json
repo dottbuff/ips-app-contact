@@ -1,0 +1,41 @@
+{
+    "normal": {
+        "added": [
+            "__app_dbcontact",
+            "menu__dbcontact_contact",
+            "menu__dbcontact_contact_manage",
+            "dbcontact_contact_title",
+            "dbcontact_contact_title_add_child",
+            "dbcontact_categoryName",
+            "dbcontact_title",
+            "dbcontact_contact_admins",
+            "dbcontact_contact_mods",
+            "dbcontact_contact_showmore",
+            "dbcontact_contact_online",
+            "dbcontact_contact_offline",
+            "dbcontact_contact_details",
+            "block_dbcontact",
+            "block_dbcontact_desc",
+            "dbcontact_contact_steam",
+            "dbcontact_contact_facebook",
+            "dbcontact_contact_message",
+            "dbcontact_contact_discord",
+            "r__manage",
+            "r__manage_manage",
+            "dbcontact_member",
+            "dbcontact_userId",
+            "dbcontact_links",
+            "dbcontact_message",
+            "dbcontact_discord",
+            "dbcontact_steam",
+            "dbcontact_facebook"
+        ],
+        "edited": [],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

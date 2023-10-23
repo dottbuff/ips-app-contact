@@ -1,0 +1,11 @@
+{
+    "contact": {
+        "manage": {
+            "tab": "members",
+            "controller": "manage",
+            "do": "",
+            "restriction": "manage_manage",
+            "subcontrollers": ""
+        }
+    }
+}

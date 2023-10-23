@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
+ <template template_group="widgets" template_name="dbcontact" template_data="$data" template_location="front" template_app="dbcontact"><![CDATA[<h3 class="ipsWidget_title ipsType_reset">{lang="dbcontact_title"}</h3>
+{template="tabs" app="dbcontact" group="widgets" location="front" params="$data"}
+<section id='dbContact_content' class='ipsWidget_inner ipsPad_half'>
+    {template="panels" app="dbcontact" group="widgets" location="front" params="$data"}
+</section>]]></template>
+ <template template_group="widgets" template_name="panels" template_data="$data" template_location="front" template_app="dbcontact"><![CDATA[{{foreach $data as $category}}
+    <div id="ipsTabs_dbContact_el_dbContact_{$category['id']}_panel" class='ipsTabs_panel'>
+        <ul class="ipsDataList ipsDataList_reducedSpacing">
+            {{foreach $category['users'] as $row}}
+                <li class="ipsDataItem dbContact_row">
+                    <div class="dbContact_avatar">
+                        {template="userPhoto" app="core" group="global" params="$row['userId'], 'tiny'"}
+                    </div>
+                    <div class="dbContact_general">
+                        <div class="ipsType_break ipsContained">
+                            {template="userLink" app="core" group="global" params="$row['userId']"}
+                            <span class="ipsType_light">
+                                <a id="dbContact_{$category['id']}--{$row['userId']->member_id}" class='dbContact_info' data-ipsmenu='' data-ipstooltip='' _title='{lang="dbcontact_contact_showmore"}'>
+                                    <span class='ipsBadge ipsBadge_style1'>
+                                        <i class='fa fa-info'></i>
+                                    </span>
+                                </a>
+                            </span>
+                        </div>
+                        <p class="dbContact_group">
+                            {expression="\IPS\Member\Group::load( $row['userId']->member_group_id )->formattedName" raw="true"}
+                        </p>
+                    </div>
+                    <div class='dbContact_status'>
+                        {{if $row['userId']->isOnline()}}
+                            <i class='fa-solid fa-wifi dbContact_status:online' data-ipstooltip="" _title='{lang="dbcontact_contact_online" sprintf="$row['userId']->name"}'></i>
+                        {{else}}
+                            <i class='fa-solid fa-wifi dbContact_status:offline' data-ipstooltip="" _title='{lang="dbcontact_contact_offline" sprintf="$row['userId']->name"}'></i>
+                        {{endif}}
+                    </div>
+                </li>
+            {{endforeach}}
+        </ul>
+    </div>
+{{endforeach}}
+
+{{foreach $data as $category}}
+    {{foreach $category['users'] as $user}}
+        <div id="dbContact_{$category['id']}--{$user['userId']->member_id}_menu" class='ipsHide ipsMenu ipsMenu_normal'>
+            <ul class='dbContact_more'>
+                {{if $user['itemLinks']['message'] == 1}}
+                <li>
+                    <a href='{url="app=core&module=messaging&controller=messenger&do=compose&to={$user['userId']->member_id}" seoTemplate="messenger_compose"}' class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" target="_blank" data-ipsDialog data-ipsDialog-title='{lang="compose_new"}' data-ipsDialog-forceReload data-ipsDialog-remoteSubmit data-ipsDialog-flashMessage="{lang="message_sent"}" data-ipstooltip="" _title='{lang="dbcontact_contact_message"}'>
+                        <i class='fa-solid fa-envelope'></i>
+                    </a>
+                </li>
+                {{endif}}
+                {{if $user['itemLinks']['facebook']}}
+                    <li>
+                        <a href="{$user['itemLinks']['facebook']}" class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" target="_blank" rel="noopener nofollow" data-ipstooltip="" _title='{lang="dbcontact_contact_facebook"}'>
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </li>
+                {{endif}}
+                {{if $user['itemLinks']['steam']}}
+                    <li>
+                        <a href="{$user['itemLinks']['steam']}" class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" target="_blank" rel="noopener nofollow" data-ipstooltip="" _title='{lang="dbcontact_contact_steam"}'>
+                            <i class="fa-brands fa-steam"></i>
+                        </a>
+                    </li>
+                {{endif}}
+                {{if $user['itemLinks']['discord']}}
+                    <li>
+                        <button type="button" id='dbContact_discord' class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" target="_blank" rel="noopener nofollow" data-clipboard-text="{$user['itemLinks']['discord']}" data-ipstooltip="" _title='{lang="dbcontact_contact_discord" sprintf="$user['itemLinks']['discord']"}'>
+                            <i class="fa-brands fa-discord"></i>
+                        </button>
+                    </li>
+                {{endif}}
+            </ul>
+        </div>
+    {{endforeach}}
+{{endforeach}}]]></template>
+ <template template_group="widgets" template_name="tabs" template_data="$data" template_location="front" template_app="dbcontact"><![CDATA[{{if count($data) > 1}}
+<div class='ipsTabs ipsTabs_small ipsTabs_stretch ipsClearfix' id='dbContact' data-ipsTabBar data-ipsTabBar-updateURL='false' data-ipsTabBar-contentArea='#dbContact_content'>
+	<a href='#dbContact' data-action='expandTabs'><i class='fa fa-caret-down'></i></a>
+	<ul role="tablist" class='ipsList_reset'>
+        {{foreach $data as $category}}
+            {{if count($category['users']) >= 1}}
+                <li>
+                    <a href='#' id="el_dbContact_{$category['id']}" class='ipsTabs_item ipsTabs_activeItem' role="tab" aria-selected="true">{$category['categoryName']}</a>
+                </li>
+            {{endif}}
+        {{endforeach}}
+	</ul>
+</div>
+{{endif}}]]></template>
+ <css css_location="front" css_app="dbcontact" css_attributes="" css_path="." css_name="dbcontact.css">.dbContact_row {
+    display: flex;
+    align-items: center;
+}
+
+.dbContact_row .dbContact_avatar,
+.dbContact_row .dbContact_general,
+.dbContact_row .dbContact_status {
+    display: block;
+    padding: var(--sp-3) 0;
+}
+
+.dbContact_row .dbContact_avatar {
+    padding: 0 var(--sp-3);
+}
+
+.dbContact_row .dbContact_general {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.dbContact_row .dbContact_general .dbContact_group {
+    margin: 0;
+}
+
+.dbContact_row .dbContact_status\:online {
+    color: #85b421;
+}
+
+.dbContact_row .dbContact_status\:offline {
+    color: #b21717;
+}
+
+.dbContact_row .dbContact_general .dbContact_info {
+    cursor: pointer;
+}
+
+.dbContact_more {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dbContact_more li  {
+    flex: 1 1 50%;
+    padding: 5px;
+}</css>
+</theme>
